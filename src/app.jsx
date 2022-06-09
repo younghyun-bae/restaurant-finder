@@ -4,10 +4,11 @@ import styles from './app.module.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'; 
 import RestaurantList from './components/restaurant_list/retaurant_list';
 import RestaurantDetail from './restaurant_detail/restaurant_detail';
+import SearchHeader from './components/search_header/search_header';
 
 function App() {
   const [restaurants, setRestaurants] = useState([]); 
-
+  
   useEffect(() => {
     const requestOptions = {
       method: 'GET',
@@ -22,6 +23,7 @@ function App() {
 
   return (
   <div className={styles.app}>
+    <SearchHeader />
     <main>
       <BrowserRouter>
         <Routes>

@@ -1,10 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './restaurant_detail.module.css';
 
-const RestaurantDetail = () => { 
+
+const RestaurantDetail = (props) => { 
+  const navigate = useNavigate();
 
   return (
-    <h1 className={styles.header1}>router test page</h1>      
+    <>
+      <button className={styles.goback} onClick={()=>{navigate('/');}}>back to the list</button>
+      <h1>show the details</h1>
+    </>
   );
 }
 export default RestaurantDetail;
