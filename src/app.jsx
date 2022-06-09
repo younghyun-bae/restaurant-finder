@@ -1,16 +1,12 @@
 
 import { useEffect, useState } from 'react';
 import styles from './app.module.css';
-import { Route, Routes } from 'react-router-dom'; 
+import { BrowserRouter, Route, Routes } from 'react-router-dom'; 
 import RestaurantList from './components/restaurant_list/retaurant_list';
-import SearchHeader from './components/search_header/search_header';
 import RestaurantDetail from './restaurant_detail/restaurant_detail';
 
 function App() {
   const [restaurants, setRestaurants] = useState([]); 
-  const search = query => {
-
-  }
 
   useEffect(() => {
     const requestOptions = {
@@ -26,18 +22,16 @@ function App() {
 
   return (
   <div className={styles.app}>
-    <SearchHeader onSearch={search} />
     <main>
-      <Routes>
-        <Route path='/restaurants'>
-          <RestaurantDetail />
-        </Route>
-        <Route path='/'>
-          <RestaurantList restaurants={restaurants} />;
-        </Route>
-      </Routes>
-    </main>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' exact element={<RestaurantList restaurants={restaurants} />} />
+          <Route path='/restaurant_list' element={<RestaurantList restaurants={restaurants} />} />
+          <Route path='/restaurant_detail' element={<RestaurantDetail />} />
+        </Routes>
+      </BrowserRouter>
 
+    </main>
   </div>
   );
 }
