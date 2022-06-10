@@ -20,9 +20,6 @@ const SearchHeader = ({ onSearch }) => {
 
   return (
     <header className={styles.header}>
-      <div>
-        <h1 className={styles.title}>Restaurant Finder</h1>
-      </div>
       <input
         ref={inputRef}
         className={styles.input}
@@ -33,7 +30,7 @@ const SearchHeader = ({ onSearch }) => {
       <button className={styles.button}  type="submit" onClick={onClick}>
         <img
           className={styles.buttonImg}
-          src="/images/search.png"
+          src=""
           alt="search"
         />
       </button>
