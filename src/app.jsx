@@ -23,7 +23,6 @@ function App() {
 
   return (
   <div className={styles.app}>
-    <Header />
     <main>
       <BrowserRouter>
         <Routes>

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './filter-section.module.css';
 
 const FilterSection = (props) => (
-  <> 
+  <section className={styles.filter}> 
     <label for="dietary-select">Choose a dietary restriction: </label>
     <select className={styles.select}>
         <option value="">🔍</option>
@@ -13,7 +13,7 @@ const FilterSection = (props) => (
         <option value="Vegan">Vegan</option>
         <option value="Vegitarian">Vegitarian</option>
     </select>
-  </>
+  </section>
   );
 
 export default FilterSection;

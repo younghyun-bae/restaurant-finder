@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import FilterSection from '../filter-section/filter-section';
+import Header from '../header.jsx/header';
 import RestaurantItem from '../restaurant_item/restaurant_item';
 import SearchHeader from '../search_header/search_header';
 import styles from './restaurant_list.module.css';
@@ -21,6 +22,7 @@ const RestaurantList = (props) => {
   
   return (
     <>
+      <Header />
       <SearchHeader />
       <FilterSection />
       <ul className={styles.restaurants}>
