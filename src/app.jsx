@@ -4,7 +4,6 @@ import styles from './app.module.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'; 
 import RestaurantList from './components/restaurant_list/retaurant_list';
 import RestaurantDetail from './restaurant_detail/restaurant_detail';
-import Header from './components/header.jsx/header';
 
 function App() {
   const [restaurants, setRestaurants] = useState([]); 
@@ -15,11 +14,14 @@ function App() {
       redirect: 'follow'
     };
     
-    fetch("https://redi-final-restaurants.herokuapp.com/restaurants", requestOptions)
+    fetch('./resturants-api.json', requestOptions)
       .then(response => response.json())
       .then(result => setRestaurants(result.results))
       .catch(error => console.log('error', error));
   }, []);
+
+
+
 
   return (
   <div className={styles.app}>
