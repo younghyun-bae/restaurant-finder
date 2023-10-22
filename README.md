@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# 🧆 Restaurant Finder 🇩🇪
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🔍 Project description
 
-## Available Scripts
+This is a final project of the React.js course from ReDI School Berlin. It includes very basic yet important React.js framwork features such as JSX syntax,
 
-In the project directory, you can run:
+Users are able to
 
-### `npm start`
+- click a category of the dietary restrictions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- see the filtered restaurant list and its information
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🔨 Note
 
-### `npm test`
+### ❗️
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+There was an issue crashing the endpoint of the restaurants API from _Heroku_.
 
-### `npm run build`
+In and attempt to solve this
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- I should have replaced to another address which contains the original contents. So, I have asked to my teachers and the other people from ReDI school but unfortunately, no one had the access for the Heroku API.
+- I got a _JSON_ file `data.json` with the same information.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```jsx
+//from this
+//App.js
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+const [restaurants, setRestaurants] = useState([]);
 
-### `npm run eject`
+useEffect(() => {
+  const requestOptions = {
+    method: "GET",
+    redirect: "follow",
+  };
+  fetch("./resturants-api.json", requestOptions)
+    .then((response) => response.json())
+    .then((result) => setRestaurants(result.results))
+    .catch((error) => console.log("error", error));
+}, []);
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [More info of Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```jsx
+//to this
+//filter-section
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+const [dataRestaurant, setDataRestaurant] = useState([]);
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+const getData = () => {
+  fetch("data.json", {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (myJson) {
+      setDataRestaurant(myJson.results);
+    });
+};
+useEffect(() => {
+  getData();
+}, []);
+```
