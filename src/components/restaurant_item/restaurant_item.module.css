@@ -1,13 +1,18 @@
+.container {
+  list-style-type: none;
+}
+
 .restaurant {
   width: 400px;
   height: 100%;
   display: flex;
   align-items: center;
-  border: 0.5px solid lightgray;
+  border: 0.1rem solid lightgray;
+  border-radius: 2rem;
   box-shadow: 3px 3px 5px 0px rgba(191, 191, 191, 0.53);
   cursor: pointer;
   transition: transform 250ms ease-in;
-  margin: 0.8em;
+  margin: 1em 2rem 1rem 0;
   padding: 0.3em;
 }
 
@@ -15,14 +20,18 @@
   transform: scale(1.02);
 }
 
+.imgContainer {
+  margin: 1rem;
+}
+
 .thumbnail {
   width: 180px;
   height: 180px;
+  border-radius: 1rem;
 }
 
 .metadata {
-
-  margin: 1em;
+  margin: 1em 0;
 }
 
 .name {

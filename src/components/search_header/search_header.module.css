@@ -1,3 +1,28 @@
 .header {
-  margin: 0.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
+}
+
+.input {
+  width: 20vh;
+  border: none;
+
+  outline: 0.1rem solid #caced1;
+  padding: 0.2rem 0;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  border: solid #555;
+}
+
+.button {
+  background-color:#caced1;
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.25rem;
+  margin-left: 0.5rem;
 }

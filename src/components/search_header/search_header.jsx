@@ -28,11 +28,7 @@ const SearchHeader = ({ onSearch }) => {
         onKeyPress={onKeyPress}
       />
       <button className={styles.button}  type="submit" onClick={onClick}>
-        <img
-          className={styles.buttonImg}
-          src=""
-          alt="search"
-        />
+      Go!
       </button>
     </header>
   );
