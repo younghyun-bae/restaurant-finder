@@ -1,7 +1,9 @@
 import styles from './app.module.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'; 
-import RestaurantList from './components/restaurant_list/retaurant_list.jsx';
 import RestaurantDetail from './restaurant_detail/restaurant_detail.jsx';
+import Intro from './components/intro.jsx';
+import RestaurantList from './components/restaurant_list/restaurant_list.jsx';
+
 function App() {
 
   return (
@@ -9,7 +11,8 @@ function App() {
     <main>
       <BrowserRouter>
         <Routes>
-          <Route path='/' exact element={<RestaurantList />} />
+          <Route path='/' exact element={<Intro />} />
+          <Route path='/restaurantberlin' element={<RestaurantList />} />
           <Route path='/restaurant_detail' element={<RestaurantDetail />} />
         </Routes>
       </BrowserRouter>
