@@ -72,6 +72,27 @@ In an attept to practice one of the essential CSS libraries,
 
 - I converted Post CSS styling to _[Styled Components](https://styled-components.com/docs/basics)_.
 
+```jsx
+//restaurant_item.jsx
+//Adapting based on props
+const Details = styled.h4`
+  font-size: ${p => p.primary ? "0.7rem" : "0.8rem"};
+  margin: 0.3em;
+`
+
+> I realised that it would be useful to learn TypeScripts
+
+//search_header.jsx
+//& a single ampersand refers to all instances of the component
+const Input = styled.input`
+  ...
+  box-sizing: border-box;
+  &:focus {
+    border: solid #555;
+  }
+`
+```
+
 ### ❗️❗️❗️
 
 In an attept to practice the latest version of _[React Router](https://reactrouter.com/en/main/start/overview)_,
