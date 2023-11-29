@@ -1,4 +1,5 @@
-import styles from './search_header.module.css';
+// import styles from './search_header.module.css';
+import styled from 'styled-components';
 import React, { useRef } from 'react';
 
 const SearchHeader = ({ onSearch }) => {
@@ -19,19 +20,49 @@ const SearchHeader = ({ onSearch }) => {
 
 
   return (
-    <header className={styles.header}>
-      <input
+    <Search>
+      <Input
         ref={inputRef}
-        className={styles.input}
         type="search"
         placeholder='Search...'
         onKeyPress={onKeyPress}
       />
-      <button className={styles.button}  type="submit" onClick={onClick}>
+      <Btn type="submit" onClick={onClick}>
       Go!
-      </button>
-    </header>
+      </Btn>
+    </Search>
   );
 };
+
+const Search = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
+`
+
+const Input = styled.input`
+  width: 20vh;
+  border: none;
+
+  outline: 0.1rem solid #caced1;
+  padding: 0.2rem 0;
+  box-sizing: border-box;
+  &:focus {
+    border: solid #555;
+  }
+`
+
+const Btn = styled.button`
+  background-color:#caced1;
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.25rem;
+  margin-left: 0.5rem;
+  &:hover {
+    cursor: pointer;
+  }
+`
 
 export default SearchHeader;

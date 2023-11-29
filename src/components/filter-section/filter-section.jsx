@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import styles from './filter-section.module.css';
+// import styles from './filter-section.module.css';
+import styled from 'styled-components';
 import RestaurantItem from '../restaurant_item/restaurant_item';
 import SearchHeader from '../search_header/search_header';
 
@@ -47,12 +48,11 @@ export default function FilterSection() {
 
   return (
     <div>
-      <div className={styles.container}>
+      <Container>
         <SearchHeader/>
-        <section className={styles.filter}> 
+        <Filter> 
           <label for="dietary-select"></label>
-          <select
-            className={styles.select}
+          <Select
             name='category-list'
             id='category-list'
             onChange={handleCategoryChange}
@@ -64,14 +64,41 @@ export default function FilterSection() {
               <option value="Lactose Free">Lactose Free</option>
               <option value="Vegan">Vegan</option>
               <option value="Vegitarian">Vegitarian</option>
-          </select>
-        </section>
-      </div>
-      <ul className={styles.restaurants}>
+          </Select>
+        </Filter>
+      </Container>
+      <RestaurantList>
         {filteredList.map((element, id) => (
           <RestaurantItem {...element} key={id} />
         ))}
-      </ul>
+      </RestaurantList>
     </div>
   );
 }
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+`
+
+const Filter = styled.section`
+  margin: 0;
+`
+
+const Select = styled.select`
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #caced1;
+  border-radius: 1rem;
+  color: #000;
+  cursor: pointer;
+`
+
+const RestaurantList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+`
