@@ -76,11 +76,9 @@ In an attept to practice one of the essential CSS libraries,
 //restaurant_item.jsx
 //Adapting based on props
 const Details = styled.h4`
-  font-size: ${p => p.primary ? "0.7rem" : "0.8rem"};
+  font-size: ${(p) => (p.primary ? "0.7rem" : "0.8rem")};
   margin: 0.3em;
-`
-
-> I realised that it would be useful to learn TypeScripts
+`;
 
 //search_header.jsx
 //& a single ampersand refers to all instances of the component
@@ -90,8 +88,10 @@ const Input = styled.input`
   &:focus {
     border: solid #555;
   }
-`
+`;
 ```
+
+> I realised that it would be useful to learn TypeScripts
 
 ### ❗️❗️❗️
 
