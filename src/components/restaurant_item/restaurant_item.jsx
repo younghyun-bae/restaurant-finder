@@ -3,7 +3,7 @@ import React from 'react';
 // import styles from './restaurant_item.module.css';
 import styled from 'styled-components';
 
-const RestaurantItem = ({ id, photos, name, cuisine, dietaryRestrictions, rating, user_ratings_total }) => (
+const RestaurantItem = ({ id, photos, name, cuisine, dietaryRestrictions, rating, user_ratings_total, formatted_address }) => (
     <Container key={id}>
       <Restaurant>
         <ImgContainer>
@@ -20,6 +20,7 @@ const RestaurantItem = ({ id, photos, name, cuisine, dietaryRestrictions, rating
           <Details>{cuisine}</Details>
           <Details>{dietaryRestrictions}</Details>
           <Details>★ {rating} ({user_ratings_total})</Details>
+          <Details primary>{formatted_address}</Details>
         </Metadata>
       </Restaurant>
     </Container>
@@ -63,8 +64,9 @@ const Name = styled.h3`
 `
 
 const Details = styled.h4`
+  font-size: ${p => p.primary ? "0.7rem" : "0.8rem"};
   margin: 0.3em;
-  font-size: 0.8rem;
 `
+
 
 export default RestaurantItem;
